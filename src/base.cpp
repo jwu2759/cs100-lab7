@@ -1,0 +1,7 @@
+
+class Base{
+	private:
+
+	public:
+		
+};
