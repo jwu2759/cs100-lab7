@@ -1,5 +1,6 @@
 #include <string>
 #include <sstream>
+#include <cmath>
 
 class Base {
     public:
@@ -98,3 +99,19 @@ class Div : public Base{
 
 };
 
+class Pow : public Base {
+	private:
+		Base* left = 0;
+		Base* right = 0;
+	public:
+		Pow(Base* l, Base* r){
+			left = l;
+			right = r;
+		}
+		virtual double evaluate(){
+			return pow(left->evaluate(),right->evaluate());
+		}
+		virtual std::string stringify(){
+			return "(" + left->stringify() + "**" + right->stringify() + ")";
+		}
+};
