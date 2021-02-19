@@ -2,7 +2,7 @@
 #define __BASE_TEST_HPP__
 
 #include "gtest/gtest.h"
-#include "../src/base.cpp"
+#include "../src/base.hpp"
 
 TEST(OpTest, OpEvaluateNonZero) {
     Op* test = new Op(8);
@@ -22,26 +22,6 @@ TEST(OpTest, StringifyNegDouble){
 TEST(OpTest, StringifyInt){
     Op* test = new Op(4);
     EXPECT_EQ(test->stringify(), "4");
-}
-
-TEST(OpTest, OpEvaluateDouble) {
-	SevenFiveOpMock* test = new SevenFiveOpMock();
-	EXPECT_EQ(test->evaluate(), 7.5);
-}
-
-TEST(OpTest, OpEvaluateNegDouble) {
-	NegFiveFiveOpMock* test = new NegFiveFiveOpMock();
-	EXPECT_EQ(test->evaluate(), -5.5);
-}
-
-TEST(OpTest, ZeroOpMock){
-	ZeroOpMock* test = new ZeroOpMock();
-	EXPECT_EQ(test->evaluate(), 0.0);
-}
-
-TEST(OpTest, ThreeOpMock){
-	ThreeOpMock* test = new ThreeOpMock();
-	EXPECT_EQ(test->evaluate(), 3.0);
 }
 
 TEST(AddTest, AddEvaluateFive){
