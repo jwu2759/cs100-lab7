@@ -25,6 +25,7 @@ class Op : public Base {
           	val = value;
   		strs << val;	
   	}
+	virtual ~Op(){}
    	virtual double evaluate() { return val; }
    	virtual std::string stringify() { return strs.str(); }
 };
@@ -81,6 +82,7 @@ class Sub : public Base {
 			left = c1;
 			right = c2;
 		}
+
       ~Sub() {
 	 delete left;
 	 delete right;	
@@ -106,6 +108,7 @@ class Div : public Base{
       ~Div() {
 	 delete left;
 	 delete right;	
+
       }
       virtual double evaluate(){
 	 return left->evaluate() / right->evaluate();
@@ -125,10 +128,12 @@ class Pow : public Base {
 			left = l;
 			right = r;
 		}
+
       ~Pow() {
 	 delete left;
 	 delete right;	
       }
+
 		virtual double evaluate(){
 			return pow(left->evaluate(),right->evaluate());
 		}
