@@ -23,7 +23,7 @@ class Op : public Base {
     public:
         Op(double value) : Base() {
           	val = value;
-  		strs << val;	
+		strs << val;
   	}
 	virtual ~Op(){}
    	virtual double evaluate() { return val; }
