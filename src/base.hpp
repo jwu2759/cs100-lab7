@@ -25,6 +25,7 @@ class Op : public Base {
           	val = value;
   		strs << val;	
   	}
+	virtual ~Op(){}
    	virtual double evaluate() { return val; }
    	virtual std::string stringify() { return strs.str(); }
 };
@@ -37,6 +38,10 @@ class Mult : public Base{
       Mult(Base* x1, Base* x2) : Base(){
 	 left = x1;
 	 right = x2;
+      }
+      virtual ~Mult(){
+	 delete left;
+	 delete right;
       }
       virtual double evaluate(){
 	 return left->evaluate() * right->evaluate();
@@ -54,6 +59,10 @@ class Add : public Base{
       Add(Base* child1, Base* child2) : Base(){
           leftChild = child1;
           rightChild = child2;
+      }
+      virtual ~Add(){
+         delete leftChild;
+         delete rightChild;
       }
       virtual double evaluate(){
 	return leftChild->evaluate() + rightChild->evaluate();
@@ -73,6 +82,10 @@ class Sub : public Base {
 			left = c1;
 			right = c2;
 		}
+	      	virtual ~Sub(){
+        		delete left;
+        		delete right;
+      		}
 		virtual double evaluate(){
 			return left->evaluate() - right->evaluate();
 		}
@@ -89,6 +102,10 @@ class Div : public Base{
       Div(Base* child1, Base* child2) : Base(){
          left = child1;
 	 right = child2;
+      }
+      virtual ~Div(){
+         delete left;
+         delete right;
       }
       virtual double evaluate(){
 	 return left->evaluate() / right->evaluate();
@@ -108,6 +125,10 @@ class Pow : public Base {
 			left = l;
 			right = r;
 		}
+	     	virtual ~Pow(){
+         		delete left;
+        		delete right;
+      		}
 		virtual double evaluate(){
 			return pow(left->evaluate(),right->evaluate());
 		}
