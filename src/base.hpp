@@ -37,6 +37,10 @@ class Mult : public Base{
       Mult(Base* x1, Base* x2) : Base(){
 	 left = x1;
 	 right = x2;
+      }   
+      ~Mult() {
+	 delete left;
+	 delete right;	
       }
       virtual double evaluate(){
 	 return left->evaluate() * right->evaluate();
@@ -54,6 +58,10 @@ class Add : public Base{
       Add(Base* child1, Base* child2) : Base(){
           leftChild = child1;
           rightChild = child2;
+      }
+      ~Add() {
+	 delete leftChild;
+	 delete rightChild;	
       }
       virtual double evaluate(){
 	return leftChild->evaluate() + rightChild->evaluate();
@@ -73,6 +81,11 @@ class Sub : public Base {
 			left = c1;
 			right = c2;
 		}
+      ~Sub() {
+	 delete left;
+	 delete right;	
+      }
+
 		virtual double evaluate(){
 			return left->evaluate() - right->evaluate();
 		}
@@ -89,6 +102,10 @@ class Div : public Base{
       Div(Base* child1, Base* child2) : Base(){
          left = child1;
 	 right = child2;
+      }
+      ~Div() {
+	 delete left;
+	 delete right;	
       }
       virtual double evaluate(){
 	 return left->evaluate() / right->evaluate();
@@ -108,6 +125,10 @@ class Pow : public Base {
 			left = l;
 			right = r;
 		}
+      ~Pow() {
+	 delete left;
+	 delete right;	
+      }
 		virtual double evaluate(){
 			return pow(left->evaluate(),right->evaluate());
 		}
