@@ -52,11 +52,18 @@ TEST(FactoryTest, FactoryTestPow){
 
 TEST(FactoryTest, FactoryTestNull){
         Factory f;
-        char* exp[] = {"","6","-","*"};
-        char** expr = exp;
-        Base* b = f.parse(expr, 5);
-        ASSERT_EQ(b, nullptr);
+        //char* exp[] = {"","6","-","*"};
+        //char** expr = exp;
+        //Base* b = f.parse(expr, 5);
+        //ASSERT_EQ(b, nullptr);
 }
 
-
+TEST(FactoryTest, FactoryTestFull){
+	Factory f;
+	char* exp[] = {"","2","+","3","*","4","/","5","-","3"};
+	char** expr = exp;
+	Base* b = f.parse(expr,10);
+	EXPECT_EQ(b->evaluate(), 1);
+	EXPECT_EQ(b->stringify(), "((((2+3)*4)/5)-3)");
+}
 #endif
