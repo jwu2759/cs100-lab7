@@ -35,7 +35,6 @@ class Factory{
 					++i;
 				}
 			}
-			delete temp;
 			return root;
 		}
 };

@@ -1,3 +1,6 @@
+#ifndef __BASE_HPP__
+#define __BASE_HPP__
+
 #include <string>
 #include <sstream>
 #include <cmath>
@@ -141,3 +144,4 @@ class Pow : public Base {
 			return "(" + left->stringify() + "**" + right->stringify() + ")";
 		}
 };
+#endif
