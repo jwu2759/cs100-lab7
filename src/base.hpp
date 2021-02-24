@@ -1,3 +1,6 @@
+#ifndef __BASE_HPP__
+#define __BASE_HPP__
+
 #include <string>
 #include <sstream>
 #include <cmath>
@@ -23,7 +26,7 @@ class Op : public Base {
     public:
         Op(double value) : Base() {
           	val = value;
-  		strs << val;	
+		strs << val;
   	}
 	virtual ~Op(){}
    	virtual double evaluate() { return val; }
@@ -141,7 +144,6 @@ class Pow : public Base {
 			return "(" + left->stringify() + "**" + right->stringify() + ")";
 		}
 };
-
 
 class Rand : public Base{
    private:
