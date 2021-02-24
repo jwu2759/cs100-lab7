@@ -157,3 +157,5 @@ class Rand : public Base{
       virtual double evaluate(){return val;}
       virtual std::string stringify(){return str.str();}
 };
+#endif
+
