@@ -84,4 +84,11 @@ TEST(FactoryTest, FactoryTestFull2){
 	EXPECT_EQ(b->stringify(), "(((((3**2)+7)/4)-3)*5)");
 }
 
+TEST(FactoryTest, OpAddOpOp){
+	Factory f;
+	char* exp[] = {"", "3", "+", "4", "4"};
+	Base* b = f.parse(exp,5);
+	ASSERT_EQ(b, nullptr);
+}
+
 #endif

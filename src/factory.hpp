@@ -37,6 +37,12 @@ class Factory{
 			while(i < length){
 				if(strcmp(input[i],"+") == 0){
 					temp = root;
+					if(i + 1 >= length){
+						std::cout << "INVALID INPUT" << std::endl;
+						delete root;
+						root = nullptr;
+						return root;
+					}
 					if(strcmp(input[++i], "R") == 0)
 						root = new Add(temp,new Rand());
 					else if(isNumber(input[i]))
@@ -52,6 +58,12 @@ class Factory{
 				}
 				else if(strcmp(input[i],"-") == 0){
 					temp = root;
+					if(i + 1 >= length){
+						std::cout << "INVALID INPUT" << std::endl;
+						delete root;
+						root = nullptr;
+						return root;
+					}
 					if(strcmp(input[++i], "R") == 0)
 						root = new Sub(temp,new Rand());
 					else if(isNumber(input[i]))
@@ -66,6 +78,12 @@ class Factory{
 				}
 				else if(strcmp(input[i],"/") == 0){
 					temp = root;
+					if(i + 1 >= length){
+						std::cout << "INVALID INPUT" << std::endl;
+						delete root;
+						root = nullptr;
+						return root;
+					}
 					if(strcmp(input[++i], "R") == 0)
 						root = new Div(temp,new Rand());
 					else if(isNumber(input[i]))
@@ -80,6 +98,12 @@ class Factory{
 				}
 				else if(strcmp(input[i],"*") == 0){
 					temp = root;
+					if(i + 1 >= length){
+						std::cout << "INVALID INPUT" << std::endl;
+						delete root;
+						root = nullptr;
+						return root;
+					}
 					if(strcmp(input[++i], "R") == 0)
 						root = new Mult(temp,new Rand());
 					else if(isNumber(input[i]))
@@ -94,6 +118,12 @@ class Factory{
 				}
 				else if(strcmp(input[i],"**") == 0){
 					temp = root;
+					if(i + 1 >= length){
+						std::cout << "INVALID INPUT" << std::endl;
+						delete root;
+						root = nullptr;
+						return root;
+					}
 					if(strcmp(input[++i], "R") == 0)
 						root = new Pow(temp,new Rand());
 					else if(isNumber(input[i]))
