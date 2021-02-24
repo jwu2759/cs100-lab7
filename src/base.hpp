@@ -158,7 +158,5 @@ class Rand : public Base{
       virtual std::string stringify(){return str.str();}
 };
 
+
 #endif
-
-
-

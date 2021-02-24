@@ -34,7 +34,7 @@ class Factory{
 			}
 			++i;
 			//check if its a symbol, if it is, then it is invalid
-			while(i + 1 < length){
+			while(i < length){
 				if(strcmp(input[i],"+") == 0){
 					temp = root;
 					if(strcmp(input[++i], "R") == 0)
@@ -47,8 +47,8 @@ class Factory{
 						root = nullptr;
 						return root;
 					}
-					++i;
 					//if input at the incremented i value is a digit then its not right
+					++i;
 				}
 				else if(strcmp(input[i],"-") == 0){
 					temp = root;
@@ -116,4 +116,3 @@ class Factory{
 			return root;
 		}
 };
-
