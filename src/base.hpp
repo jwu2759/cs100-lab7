@@ -149,7 +149,7 @@ class Rand : public Base{
       std::ostringstream str;
    public:
       Rand() : Base(){
-	 val = std::rand() % 100;
+	 val = (double)(std::rand() % 100);
 	 str << val;
       }
       virtual double evaluate(){return val;}
