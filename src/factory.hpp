@@ -10,10 +10,15 @@ class Factory{
 			Base* temp = nullptr;
 			int i = 1;
 			root = new Op(strtod(input[i++], NULL));
+			//NEED TO ADD RAND FUNCTIONALITY
 			while(i + 1 < length){
 				if(strcmp(input[i],"+") == 0){
 					temp = root;
-					root = new Add(temp,new Op(strtod(input[++i],NULL)));
+					++i;
+					if(input[i] == "R")
+						root = new Add(temp,new Rand());
+					else
+						root = new Add(temp,new Op(strtod(input[i],NULL)));
 				}
 				else if(strcmp(input[i],"-") == 0){
 					temp = root;
@@ -35,7 +40,6 @@ class Factory{
 					++i;
 				}
 			}
-			delete temp;
 			return root;
 		}
 };
