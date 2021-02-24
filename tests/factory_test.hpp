@@ -5,10 +5,11 @@
 #include "../src/factory.hpp"
 #include "../src/base.hpp"
 
+
 TEST(FactoryTest, FactoryTestAdd){
 	Factory f;
 	char* exp[] = {"","2","+","3"};
-	Base* b = f.parse(exp, 5);
+	Base* b = f.parse(exp, 4);
 	EXPECT_EQ(b->evaluate(), 5);
 	EXPECT_EQ(b->stringify(), "(2+3)");
 }
@@ -16,7 +17,7 @@ TEST(FactoryTest, FactoryTestAdd){
 TEST(FactoryTest, FactoryTestSub){
         Factory f;
         char* exp[] = {"","6","-","3"};
-        Base* b = f.parse(exp, 5);
+        Base* b = f.parse(exp, 4);
         EXPECT_EQ(b->evaluate(), 3);
 	EXPECT_EQ(b->stringify(), "(6-3)");
 }
@@ -24,7 +25,7 @@ TEST(FactoryTest, FactoryTestSub){
 TEST(FactoryTest, FactoryTestMult){
         Factory f;
         char* exp[] = {"","2","*","2"};
-        Base* b = f.parse(exp, 5);
+        Base* b = f.parse(exp, 4);
         EXPECT_EQ(b->evaluate(), 4);
         EXPECT_EQ(b->stringify(), "(2*2)");
 }
@@ -32,7 +33,7 @@ TEST(FactoryTest, FactoryTestMult){
 TEST(FactoryTest, FactoryTestDiv){
         Factory f;
         char* exp[] = {"","10","/","4"};
-        Base* b = f.parse(exp, 5);
+        Base* b = f.parse(exp, 4);
         EXPECT_EQ(b->evaluate(), 2.5);
         EXPECT_EQ(b->stringify(), "(10/4)");
 }
@@ -40,15 +41,30 @@ TEST(FactoryTest, FactoryTestDiv){
 TEST(FactoryTest, FactoryTestPow){
         Factory f;
         char* exp[] = {"","4","**","2"};
-        Base* b = f.parse(exp, 5);
+        Base* b = f.parse(exp, 4);
         EXPECT_EQ(b->evaluate(), 16);
         EXPECT_EQ(b->stringify(), "(4**2)");
 }
 
-TEST(FactoryTest, FactoryTestNull){
+TEST(FactoryTest, FactoryTestRand){
+	Factory f;
+	char* exp[] = {"","R","+","1"};
+	Base* b = f.parse(exp, 4);
+	EXPECT_EQ(b->evaluate(), 16);
+	EXPECT_EQ(b->stringify(), "(15+1)");
+}
+
+TEST(FactoryTest, FactoryTestNull1){
         Factory f;
         char* exp[] = {"","6","-","*"};
-        Base* b = f.parse(exp, 5);
+        Base* b = f.parse(exp, 4);
+        ASSERT_EQ(b, nullptr);
+}
+
+TEST(FactoryTest, FactoryTestNull2){
+        Factory f;
+        char* exp[] = {"","-","-","+"};
+        Base* b = f.parse(exp, 4);
         ASSERT_EQ(b, nullptr);
 }
 
