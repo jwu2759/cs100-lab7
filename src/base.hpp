@@ -151,11 +151,15 @@ class Rand : public Base{
       std::ostringstream str;
    public:
       Rand() : Base(){
-	 val = (double)(std::rand() % 100);
-	 str << val;
+         val = (double)(std::rand() % 100);
+         str << val;
       }
       virtual double evaluate(){return val;}
       virtual std::string stringify(){return str.str();}
 };
+
+
 #endif
+
+
 
