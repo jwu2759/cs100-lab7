@@ -114,6 +114,7 @@ class Factory{
 					++i;
 				}
 				else{
+					isInvalid(root);
 				}
 			}
 			return root;
